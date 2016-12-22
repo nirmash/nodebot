@@ -19,28 +19,25 @@ var connector = useEmulator ? new builder.ChatConnector() : new botbuilder_azure
 var bot = new builder.UniversalBot(connector);
 
 bot.dialog('/', [
-    function (session) {
-        session.userData.counter=0;
-        builder.Prompts.text(session, "Counter =" + session.userData.counter);
-    },
-    function (session, results) {
+    function (session, results, next) {
+        if(session.userData.counter==0)
+        {
+            session.userData.replies="";
+            session.userData.meta = require ('./questions.json');
+        }
+        if(session.userData.counter>0){
+            session.userData.replies+=session.userData.lastAttribName +  ":" + session.message.text;
+        }
+        if(session.userData.counter==session.userData.meta.required.length){
+            session.userData.counter=0;
+            session.send("Thanks for playing!");
+            session.endConversation();
+            return;
+        }
+        builder.Prompts.number(session,session.userData.meta.properties[session.userData.meta.required[session.userData.counter]].Prompt.Patterns[0]);
+        session.userData.lastAttribName=session.userData.meta.required[session.userData.counter];
         session.userData.counter++;
-        session.userData.name = results.response;
-        builder.Prompts.text(session, "Counter =" + session.userData.counter);
-        //builder.Prompts.number(session, "Hi " + results.response + ", How many years have you been coding?"); 
-    },
-    function (session, results) {
-        session.userData.counter++;
-        session.userData.coding = results.response;
-        builder.Prompts.text(session, "Counter =" + session.userData.counter);
-        //builder.Prompts.choice(session, "What language do you code Node using?", ["JavaScript", "CoffeeScript", "TypeScript"]);
-    },
-    function (session, results) {
-        session.userData.counter++;
-        session.userData.language = results.response.entity;
-        session.send("Got it... " + session.userData.name + 
-                    " you've been programming for " + session.userData.coding + 
-                    " years and use " + session.userData.language + ".");
+        next();
     }
 ]);
 
