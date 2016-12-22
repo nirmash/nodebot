@@ -1,0 +1,92 @@
+{
+  "References": [ "Microsoft.Bot.Sample.AnnotatedSandwichBot.dll" ],
+  "Imports": [ "Microsoft.Bot.Sample.AnnotatedSandwichBot.Resource" ],
+  "type": "object",
+  "required": [
+    "King",
+    "City",
+    "Size",
+    "Bond",
+    "Comments",
+    "Email"
+  ],
+  "Templates": {
+    "NotUnderstood": {
+      "Patterns": [ "I do not understand \"{0}\".", "Try again, I don't get \"{0}\"." ]
+    },
+    "EnumSelectOne": {
+      "Patterns": [ "What the {&} helpful? {||}" ],
+      "ChoiceStyle": "Auto"
+    }
+  },
+  "properties": {
+    "King": {
+      "Prompt": { "Patterns": [ "Who was the final ruler of the House of Tudor?\r\n1) Henry the 8th\r\n2) Elizabeth I\r\n3) William Shakespeare\r\n4) Queen Victoria" ] },
+      "Before": [ { "Message": [ "Greetings Human! \r\n Welcome to the UK Trivia Quiz!\r\nType in the number for the right asnwer" ] } ],
+      "Describe": { "Image": "http://nirsformbot.azurewebsites.net/images/Shakespear.jpg" },
+      "CorrectResponse": "2",
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 4,
+      "After": [ { "Message": [ "Thank you" ] } ]
+    },    
+    "City": {
+      "Prompt": { "Patterns": [ "Which city has been known as 'Britain's Detroit' and the 'City of Peace and Reconciliation'?\r\n1) London\r\n2) Coventry\r\n3) Leeds\r\n4) Liverpool" ] },
+      "Describe": "",
+      "CorrectResponse": "2",
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 4,
+      "After": [ { "Message": [ "Thank you" ] } ]
+    },    
+    "Size": {
+      "Prompt": { "Patterns": [ "England is how many times smaller than the USA?\r\n1) 22\r\n2) 35\r\n3) 55\r\n4) 75" ] },
+      "Describe": "",
+      "CorrectResponse": "4",
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 4,
+      "After": [ { "Message": [ "Thank you" ] } ]
+    },    
+    "Bond": {
+      "Prompt": { "Patterns": [ "Which actor did NOT play James Bond?\r\n1) Roger Moore\r\n2) Sean Connery\r\n3) Timothy Dalton\r\n4) Tom Hiddleston" ] },
+      "Describe": { "Image": "http://nirsformbot.azurewebsites.net/images/bond-james-bond.jpg" },
+      "CorrectResponse": "4",
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 4,
+      "After": [ { "Message": [ "Thank you" ] } ]
+    },    
+    "Comments": {
+      "Prompt": { "Patterns": [ "Please let us know if you have any other comments" ] },
+      "Describe": "",
+      "type": [
+        "string",
+        "null"
+      ],
+      "After": [ { "Message": [ "Thank you!" ] } ]
+    },
+    "Email": {
+      "Prompt": { "Patterns": [ "Please enter your email to get a prize!" ] },
+      "Describe": "",
+      "type": [
+        "string",
+        "null"
+      ],
+      "After": [ { "Message": [ "Thanks for taking the time to play!" ] } ]
+    }
+  },
+  "OnCompletion": "await context.PostAsync(\"\");"
+}
