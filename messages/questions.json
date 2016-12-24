@@ -22,7 +22,7 @@
   "properties": {
     "King": {
       "Prompt": { "Patterns": [ "Who was the final ruler of the House of Tudor?"] },
-      "Options" :["1) Henry the 8th","2) Elizabeth I","3) William Shakespeare","4) Queen Victoria"],
+      "Options" :["Henry the 8th","Elizabeth I","William Shakespeare","Queen Victoria"],
       "Before": [ { "Message": [ "Greetings Human! \r\n Welcome to the UK Trivia Quiz!\r\nType in the number for the right asnwer" ] } ],
       "Describe": { "Image": "http://callmyfunc.azurewebsites.net/images/Shakespear.jpg" },
       "CorrectResponse": "2",
@@ -36,7 +36,7 @@
     },    
     "City": {
       "Prompt": { "Patterns": [ "Which city has been known as 'Britain's Detroit' and the 'City of Peace and Reconciliation'?" ] },
-      "Options" : ["1) London","2) Coventry","3) Leeds","4) Liverpool"],
+      "Options" : ["London","Coventry","Leeds","Liverpool"],
       "Describe": "",
       "CorrectResponse": "2",
       "type": [
@@ -49,7 +49,7 @@
     },    
     "Size": {
       "Prompt": { "Patterns": [ "England is how many times smaller than the USA?" ] },
-      "Options" : ["1) 22","2) 35","3) 55","4) 75"],
+      "Options" : ["22","35","55","75"],
       "Describe": "",
       "CorrectResponse": "4",
       "type": [
@@ -63,7 +63,7 @@
     "Bond": {
       "Prompt": { "Patterns": [ "Which actor did NOT play James Bond?" ] },
       "Describe": { "Image": "http://callmyfunc.azurewebsites.net/images/bond-james-bond.jpg" },
-      "Options" : ["1) Roger Moore","2) Sean Connery","3) Timothy Dalton","4) Tom Hiddleston"],
+      "Options" : ["Roger Moore","Sean Connery","Timothy Dalton","Tom Hiddleston"],
       "CorrectResponse": "4",
       "type": [
         "number",
