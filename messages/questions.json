@@ -4,10 +4,6 @@
   "type": "object",
   "required": [
     "King",
-    "City",
-    "Size",
-    "Bond",
-    "Comments",
     "Email"
   ],
   "Templates": {
@@ -21,7 +17,8 @@
   },
   "properties": {
     "King": {
-      "Prompt": { "Patterns": [ "Who was the final ruler of the House of Tudor?\r\n1) Henry the 8th\r\n2) Elizabeth I\r\n3) William Shakespeare\r\n4) Queen Victoria" ] },
+      "Prompt": { "Patterns": [ "Who was the final ruler of the House of Tudor?"] },
+      "Options" :["1) Henry the 8th","2) Elizabeth I","3) William Shakespeare","4) Queen Victoria"],
       "Before": [ { "Message": [ "Greetings Human! \r\n Welcome to the UK Trivia Quiz!\r\nType in the number for the right asnwer" ] } ],
       "Describe": { "Image": "http://nirsformbot.azurewebsites.net/images/Shakespear.jpg" },
       "CorrectResponse": "2",
