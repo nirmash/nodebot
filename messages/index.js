@@ -38,8 +38,7 @@ bot.dialog('/', [
             sendToQueue(session.userData.replies);
             session.userData.replies=[];
             session.userData.counter=0;
-            session.send("Thanks for playing!");
-            session.endConversation();
+            session.endConversation("Thanks for playing!");
             return;
         }
         renderImage(session.userData.meta.properties[session.userData.meta.required[session.userData.counter]],session);
