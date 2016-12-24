@@ -21,10 +21,9 @@
   },
   "properties": {
     "King": {
-      "Prompt": { "Patterns": [ "Who was the final ruler of the House of Tudor?"] },
-      "Options" :["1) Henry the 8th","2) Elizabeth I","3) William Shakespeare","4) Queen Victoria"],
+      "Prompt": { "Patterns": [ "Who was the final ruler of the House of Tudor?\r\n1) Henry the 8th\r\n2) Elizabeth I\r\n3) William Shakespeare\r\n4) Queen Victoria" ] },
       "Before": [ { "Message": [ "Greetings Human! \r\n Welcome to the UK Trivia Quiz!\r\nType in the number for the right asnwer" ] } ],
-      "Describe": { "Image": "http://callmyfunc.azurewebsites.net/images/Shakespear.jpg" },
+      "Describe": { "Image": "http://nirsformbot.azurewebsites.net/images/Shakespear.jpg" },
       "CorrectResponse": "2",
       "type": [
         "number",
@@ -35,8 +34,7 @@
       "After": [ { "Message": [ "Thank you" ] } ]
     },    
     "City": {
-      "Prompt": { "Patterns": [ "Which city has been known as 'Britain's Detroit' and the 'City of Peace and Reconciliation'?" ] },
-      "Options" : ["1) London","2) Coventry","3) Leeds","4) Liverpool"],
+      "Prompt": { "Patterns": [ "Which city has been known as 'Britain's Detroit' and the 'City of Peace and Reconciliation'?\r\n1) London\r\n2) Coventry\r\n3) Leeds\r\n4) Liverpool" ] },
       "Describe": "",
       "CorrectResponse": "2",
       "type": [
@@ -48,8 +46,7 @@
       "After": [ { "Message": [ "Thank you" ] } ]
     },    
     "Size": {
-      "Prompt": { "Patterns": [ "England is how many times smaller than the USA?" ] },
-      "Options" : ["1) 22","2) 35","3) 55","4) 75"],
+      "Prompt": { "Patterns": [ "England is how many times smaller than the USA?\r\n1) 22\r\n2) 35\r\n3) 55\r\n4) 75" ] },
       "Describe": "",
       "CorrectResponse": "4",
       "type": [
@@ -61,9 +58,8 @@
       "After": [ { "Message": [ "Thank you" ] } ]
     },    
     "Bond": {
-      "Prompt": { "Patterns": [ "Which actor did NOT play James Bond?" ] },
-      "Describe": { "Image": "http://callmyfunc.azurewebsites.net/images/bond-james-bond.jpg" },
-      "Options" : ["1) Roger Moore","2) Sean Connery","3) Timothy Dalton","4) Tom Hiddleston"],
+      "Prompt": { "Patterns": [ "Which actor did NOT play James Bond?\r\n1) Roger Moore\r\n2) Sean Connery\r\n3) Timothy Dalton\r\n4) Tom Hiddleston" ] },
+      "Describe": { "Image": "http://nirsformbot.azurewebsites.net/images/bond-james-bond.jpg" },
       "CorrectResponse": "4",
       "type": [
         "number",

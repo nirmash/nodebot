@@ -6,6 +6,7 @@ https://docs.botframework.com/en-us/node/builder/chat/dialogs/#waterfall
 "use strict";
 var builder = require("botbuilder");
 var botbuilder_azure = require("botbuilder-azure");
+var azure = require("azure-storage");
 
 var useEmulator = (process.env.NODE_ENV == 'development');
 
@@ -34,12 +35,14 @@ bot.dialog('/', [
         }
         if(session.userData.counter==session.userData.meta.required.length){
             calculateRatings(session.userData.replies,session.userData.meta);
+            sendToQueue(session.userData.replies);
             session.userData.replies=[];
             session.userData.counter=0;
             session.send("Thanks for playing!");
             session.endConversation();
             return;
         }
+        renderImage(session.userData.meta.properties[session.userData.meta.required[session.userData.counter]],session);
         renderQuestion(session.userData.meta.properties[session.userData.meta.required[session.userData.counter]],builder,session);
         session.userData.lastAttribName=session.userData.meta.required[session.userData.counter];
         session.userData.counter++;
@@ -47,6 +50,17 @@ bot.dialog('/', [
     }
 ]);
 //send to queue when done
+function sendToQueue(answers){
+    var answerJSON = JSON.stringify(answers);
+    var buffer = new Buffer (answerJSON);
+    var toBase64 = buffer.toString('base64');
+    var queueSvc = azure.createQueueService();
+    queueSvc.createMessage(process.env['BOT_QUEUE_NAME'],toBase64,function(error, result, response){
+  if(!error){
+    // Message inserted
+  }
+});
+}
 //get the selected Options
 function getSelectedOption(question, answer){
     if(question.type[0]=="number"){
@@ -56,6 +70,17 @@ function getSelectedOption(question, answer){
         }
     }
     return answer;
+}
+//render image if we have one 
+function renderImage(question,session){
+    if(question.Describe.Image != undefined){
+        var msg = new builder.Message(session)
+            .attachments([{
+                contentType: "image/jpeg",
+                contentUrl: question.Describe.Image
+            }]);
+        session.endDialog(msg);
+    }
 }
 //change UX to have selection and verify numbers
 function renderQuestion(question,builder,session){
@@ -88,6 +113,8 @@ function calculateRatings(answers,meta){
 
 if (useEmulator) {
     var restify = require('restify');
+    process.env['BOT_QUEUE_NAME']="bot-data-items";
+    process.env['AZURE_STORAGE_CONNECTION_STRING']="DefaultEndpointsProtocol=https;AccountName=azurefunctions72b13a4d;AccountKey=tVmpziaFqDRqkf7WDDSgQTOMUcQTrqKGln1YGzjQjQQt0lmlCywnhlStmwDfrlQvz92z1Go9DGmcODmrWd6ZCA==;BlobEndpoint=https://azurefunctions72b13a4d.blob.core.windows.net/;QueueEndpoint=https://azurefunctions72b13a4d.queue.core.windows.net/;TableEndpoint=https://azurefunctions72b13a4d.table.core.windows.net/;FileEndpoint=https://azurefunctions72b13a4d.file.core.windows.net/;";
     var server = restify.createServer();
     server.listen(3978, function() {
         console.log('test bot endpont at http://localhost:3978/api/messages');
