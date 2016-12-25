@@ -94,9 +94,6 @@ function renderQuestion(question,builder,session){
     if(question.type[0]=="string"){
         builder.Prompts.text(session,question.Prompt.Patterns[0]);
     }
-    if(question.After!=undefined){
-        session.send(question.After[0].Message[0]);        
-    }
 }
 //calculate score
 function calculateRatings(answers,meta){
