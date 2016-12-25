@@ -41,6 +41,9 @@ bot.dialog('/', [
             session.endConversation("Thanks for playing!");
             return;
         }
+        if(session.userData.lastAttribName!="" && session.userData.lastAttribName != undefined){
+            renderAfterMessage(session.userData.meta.properties[session.userData.lastAttribName],session);
+        }
         renderImage(session.userData.meta.properties[session.userData.meta.required[session.userData.counter]],session);
         renderQuestion(session.userData.meta.properties[session.userData.meta.required[session.userData.counter]],builder,session);
         session.userData.lastAttribName=session.userData.meta.required[session.userData.counter];
@@ -93,6 +96,12 @@ function renderQuestion(question,builder,session){
     }
     if(question.type[0]=="string"){
         builder.Prompts.text(session,question.Prompt.Patterns[0]);
+    }
+}
+//render after message
+function renderAfterMessage(question,session){
+    if(question.After!=undefined){
+        session.send(question.After[0].Message);        
     }
 }
 //calculate score
