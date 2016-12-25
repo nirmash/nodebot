@@ -125,7 +125,7 @@ function calculateRatings(answers,meta){
 if (useEmulator) {
     var restify = require('restify');
     process.env['BOT_QUEUE_NAME']="survey-bot-out";
-    process.env['AZURE_STORAGE_CONNECTION_STRING']="DefaultEndpointsProtocol=https;AccountName=serverlessappstg;AccountKey=gWpyJCbVhiDDwV678zIUi244rDvYp0zjjSVF2akDAtrik+6D7qX6FR013ybEnp5CZmncIEMq6f1ef/+xRa71SA==;BlobEndpoint=https://serverlessappstg.blob.core.windows.net/;QueueEndpoint=https://serverlessappstg.queue.core.windows.net/;TableEndpoint=https://serverlessappstg.table.core.windows.net/;FileEndpoint=https://serverlessappstg.file.core.windows.net/;";
+    process.env['AZURE_STORAGE_CONNECTION_STRING']="";
     var server = restify.createServer();
     server.listen(3978, function() {
         console.log('test bot endpont at http://localhost:3978/api/messages');
