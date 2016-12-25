@@ -85,11 +85,17 @@ function renderImage(question,session){
 function renderQuestion(question,builder,session){
     //if question is number then get the object for the answers and load them 
     //if it is text just make it text
+    if(question.Before!=undefined){
+        session.send(question.Before[0].Message);        
+    }
     if(question.type[0]=="number"){
          builder.Prompts.choice(session,question.Prompt.Patterns[0],question.Options);
     }
     if(question.type[0]=="string"){
         builder.Prompts.text(session,question.Prompt.Patterns[0]);
+    }
+    if(question.After!=undefined){
+        session.send(question.After[0].Message[0]);        
     }
 }
 //calculate score

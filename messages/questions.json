@@ -23,7 +23,7 @@
     "King": {
       "Prompt": { "Patterns": [ "Who was the final ruler of the House of Tudor?"] },
       "Options" :["Henry the 8th","Elizabeth I","William Shakespeare","Queen Victoria"],
-      "Before": [ { "Message": [ "Greetings Human! \r\n Welcome to the UK Trivia Quiz!\r\nType in the number for the right asnwer" ] } ],
+      "Before": [ { "Message": [ "Greetings Human! Welcome to the Trivia Quiz! Type in the number or select the right asnwer" ] } ],
       "Describe": { "Image": "http://callmyfunc.azurewebsites.net/images/Shakespear.jpg" },
       "CorrectResponse": "2",
       "type": [
