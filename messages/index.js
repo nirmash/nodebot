@@ -54,7 +54,6 @@ bot.dialog('/', [
 //send to queue when done
 function sendToQueue(answers){
     var answerJSON = JSON.stringify(answers);
-    answerJSON="{"+answerJSON+"}";
     var buffer = new Buffer (answerJSON);
     var toBase64 = buffer.toString('base64');
     var queueSvc = azure.createQueueService();
