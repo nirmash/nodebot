@@ -75,7 +75,7 @@ function getSelectedOption(question, answer){
 }
 //render image if we have one 
 function renderImage(question,session){
-    if(question.Describe.Image != undefined){
+    if((question.Describe != undefined) && (question.Describe.Image != undefined)){
         var msg = new builder.Message(session)
             .attachments([{
                 contentType: "image/jpeg",

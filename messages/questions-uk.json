@@ -3,10 +3,10 @@
   "Imports": [ "Microsoft.Bot.Sample.AnnotatedSandwichBot.Resource" ],
   "type": "object",
   "required": [
-    "AppService",
-    "AzureFunctions",
-    "Session",
-    "Speaker",
+    "King",
+    "City",
+    "Size",
+    "Bond",
     "Comments",
     "Email"
   ],
@@ -20,11 +20,12 @@
     }
   },
   "properties": {
-    "AppService": {
-      "Prompt": { "Patterns": [ "What do you think about App Service?"] },
-      "Options" :["Very Exciting","Pretty Cool","Kind of blah...","It Sucks!"],
-      "Before": [ { "Message": [ "Greetings Human! Welcome to the session survey bot! Type in the number or select your asnwer" ] } ],
-      "CorrectResponse": "1",
+    "King": {
+      "Prompt": { "Patterns": [ "Who was the final ruler of the House of Tudor?"] },
+      "Options" :["Henry the 8th","Elizabeth I","William Shakespeare","Queen Victoria"],
+      "Before": [ { "Message": [ "Greetings Human! Welcome to the Trivia Quiz! Type in the number or select the right asnwer" ] } ],
+      "Describe": { "Image": "http://callmyfunc.azurewebsites.net/images/Shakespear.jpg" },
+      "CorrectResponse": "2",
       "type": [
         "number",
         "null"
@@ -33,10 +34,11 @@
       "maximum": 4,
       "After": [ { "Message": [ "Thank you" ] } ]
     },    
-    "AzureFunctions": {
-      "Prompt": { "Patterns": [ "What do you think about Azure Functions?"] },
-      "Options" :["Very Exciting","Pretty Cool","Kind of blah...","It Sucks!"],
-      "CorrectResponse": "1",
+    "City": {
+      "Prompt": { "Patterns": [ "Which city has been known as 'Britain's Detroit' and the 'City of Peace and Reconciliation'?" ] },
+      "Options" : ["London","Coventry","Leeds","Liverpool"],
+      "Describe": "",
+      "CorrectResponse": "2",
       "type": [
         "number",
         "null"
@@ -45,10 +47,11 @@
       "maximum": 4,
       "After": [ { "Message": [ "Thank you" ] } ]
     },    
-    "Session": {
-      "Prompt": { "Patterns": [ "How is this session?"] },
-      "Options" :["Very Exciting","Pretty Cool","Kind of blah...","It Sucks!"],
-      "CorrectResponse": "1",
+    "Size": {
+      "Prompt": { "Patterns": [ "England is how many times smaller than the USA?" ] },
+      "Options" : ["22","35","55","75"],
+      "Describe": "",
+      "CorrectResponse": "4",
       "type": [
         "number",
         "null"
@@ -57,10 +60,11 @@
       "maximum": 4,
       "After": [ { "Message": [ "Thank you" ] } ]
     },    
-    "Speaker": {
-      "Prompt": { "Patterns": [ "How is the speaker on this session?"] },
-      "Options" :["Very Exciting","Pretty Cool","Kind of blah...","It Sucks!"],
-      "CorrectResponse": "1",
+    "Bond": {
+      "Prompt": { "Patterns": [ "Which actor did NOT play James Bond?" ] },
+      "Describe": { "Image": "http://callmyfunc.azurewebsites.net/images/bond-james-bond.jpg" },
+      "Options" : ["Roger Moore","Sean Connery","Timothy Dalton","Tom Hiddleston"],
+      "CorrectResponse": "4",
       "type": [
         "number",
         "null"
@@ -79,13 +83,13 @@
       "After": [ { "Message": [ "Thank you!" ] } ]
     },
     "Email": {
-      "Prompt": { "Patterns": [ "Please enter your email..." ] },
+      "Prompt": { "Patterns": [ "Please enter your email to get a prize!" ] },
       "Describe": "",
       "type": [
         "string",
         "null"
       ],
-      "After": [ { "Message": [ "Thanks for taking the time to respond!" ] } ]
+      "After": [ { "Message": [ "Thanks for taking the time to play!" ] } ]
     }
   },
   "OnCompletion": "await context.PostAsync(\"\");"

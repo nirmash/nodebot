@@ -36,6 +36,7 @@
     "AzureFunctions": {
       "Prompt": { "Patterns": [ "What do you think about Azure Functions?"] },
       "Options" :["Very Exciting","Pretty Cool","Kind of blah...","It Sucks!"],
+      "Before": [ { "Message": [ "Greetings Human! Welcome to the session survey bot! Type in the number or select your asnwer" ] } ],
       "CorrectResponse": "1",
       "type": [
         "number",
@@ -48,6 +49,7 @@
     "Session": {
       "Prompt": { "Patterns": [ "How is this session?"] },
       "Options" :["Very Exciting","Pretty Cool","Kind of blah...","It Sucks!"],
+      "Before": [ { "Message": [ "Greetings Human! Welcome to the session survey bot! Type in the number or select your asnwer" ] } ],
       "CorrectResponse": "1",
       "type": [
         "number",
@@ -60,6 +62,7 @@
     "Speaker": {
       "Prompt": { "Patterns": [ "How is the speaker on this session?"] },
       "Options" :["Very Exciting","Pretty Cool","Kind of blah...","It Sucks!"],
+      "Before": [ { "Message": [ "Greetings Human! Welcome to the session survey bot! Type in the number or select your asnwer" ] } ],
       "CorrectResponse": "1",
       "type": [
         "number",
