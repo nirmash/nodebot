@@ -36,7 +36,7 @@
     },    
     "Eiffel": {
       "Prompt": { "Patterns": [ "What scale is the  Eiffel Tower in Las Vegas compared to the original one?" ] },
-      "Options" : ["Half","Twice","Third","Twice"],
+      "Options" : ["Half","Twice","Third","Thrice"],
       "Describe": "",
       "CorrectResponse": "1",
       "type": [
