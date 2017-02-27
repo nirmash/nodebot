@@ -3,10 +3,10 @@
   "Imports": [ "Microsoft.Bot.Sample.AnnotatedSandwichBot.Resource" ],
   "type": "object",
   "required": [
-    "Caesar",
-    "Eiffel",
-    "Luxor",
-    "Nevada",
+    "AppService",
+    "AzureFunctions",
+    "Session",
+    "Speaker",
     "Comments",
     "Email"
   ],
@@ -20,11 +20,10 @@
     }
   },
   "properties": {
-    "Caesar": {
-      "Prompt": { "Patterns": [ "How tall is statue of Caesar in front of Caesars Palace?"] },
-      "Options" :["20ft","10ft","100ft","2ft"],
-      "Before": [ { "Message": [ "Greetings Human! Welcome to the Trivia Quiz! Type in the number or select the right asnwer" ] } ],
-      "Describe": "",
+    "AppService": {
+      "Prompt": { "Patterns": [ "What do you think about App Service?"] },
+      "Options" :["Very Exciting","Pretty Cool","Kind of blah...","It Sucks!"],
+      "Before": [ { "Message": [ "Greetings Human! Welcome to the session survey bot! Type in the number or select your asnwer" ] } ],
       "CorrectResponse": "1",
       "type": [
         "number",
@@ -34,10 +33,9 @@
       "maximum": 4,
       "After": [ { "Message": [ "Thank you" ] } ]
     },    
-    "Eiffel": {
-      "Prompt": { "Patterns": [ "What scale is the  Eiffel Tower in Las Vegas compared to the original one?" ] },
-      "Options" : ["Half","Twice","Third","Twice"],
-      "Describe": "",
+    "AzureFunctions": {
+      "Prompt": { "Patterns": [ "What do you think about Azure Functions?"] },
+      "Options" :["Very Exciting","Pretty Cool","Kind of blah...","It Sucks!"],
       "CorrectResponse": "1",
       "type": [
         "number",
@@ -47,11 +45,10 @@
       "maximum": 4,
       "After": [ { "Message": [ "Thank you" ] } ]
     },    
-    "Luxor": {
-      "Prompt": { "Patterns": [ "How many Boeing 747s can be stacked on top of each other in the Luxor atrium?" ] },
-      "Options" : ["2","9","12","5"],
-      "Describe": "",
-      "CorrectResponse": "4",
+    "Session": {
+      "Prompt": { "Patterns": [ "How is this session?"] },
+      "Options" :["Very Exciting","Pretty Cool","Kind of blah...","It Sucks!"],
+      "CorrectResponse": "1",
       "type": [
         "number",
         "null"
@@ -60,11 +57,10 @@
       "maximum": 4,
       "After": [ { "Message": [ "Thank you" ] } ]
     },    
-    "Nevada": {
-      "Prompt": { "Patterns": [ "What percentage of Nevada is owned by the federal government?" ] },
-      "Describe": "",
-      "Options" : ["10%","35%","84.5%","15.5%"],
-      "CorrectResponse": "3",
+    "Speaker": {
+      "Prompt": { "Patterns": [ "How is the speaker on this session?"] },
+      "Options" :["Very Exciting","Pretty Cool","Kind of blah...","It Sucks!"],
+      "CorrectResponse": "1",
       "type": [
         "number",
         "null"
@@ -83,13 +79,13 @@
       "After": [ { "Message": [ "Thank you!" ] } ]
     },
     "Email": {
-      "Prompt": { "Patterns": [ "Please enter your email to get a prize!" ] },
+      "Prompt": { "Patterns": [ "Please enter your email..." ] },
       "Describe": "",
       "type": [
         "string",
         "null"
       ],
-      "After": [ { "Message": [ "Thanks for taking the time to play!" ] } ]
+      "After": [ { "Message": [ "Thanks for taking the time to respond!" ] } ]
     }
   },
   "OnCompletion": "await context.PostAsync(\"\");"
