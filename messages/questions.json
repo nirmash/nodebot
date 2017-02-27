@@ -51,7 +51,7 @@
       "Prompt": { "Patterns": [ "How many Boeing 747s can be stacked on top of each other in the Luxor atrium?" ] },
       "Options" : ["2","9","12","5"],
       "Describe": "",
-      "CorrectResponse": "4",
+      "CorrectResponse": "3",
       "type": [
         "number",
         "null"
