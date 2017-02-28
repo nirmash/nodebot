@@ -21,7 +21,7 @@
   },
   "properties": {
     "Caesar": {
-      "Prompt": { "Patterns": [ "How tall is statue of Caesar in front of Caesars Palace?"] },
+      "Prompt": { "Patterns": [ "How tall is statue of Caesar in front of Caesars Palace in vegas?"] },
       "Options" :["20ft","10ft","100ft","2ft"],
       "Before": [ { "Message": [ "Greetings Human! Welcome to the Trivia Quiz! Type in the number or select the right asnwer" ] } ],
       "Describe": "",
